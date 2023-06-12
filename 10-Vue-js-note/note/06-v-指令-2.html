@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-指令-2</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!-- v-show -->
+    <img v-show="true" src="https://cloud.ayaka.icu/d/Test-2.png" alt="" width="360px">
+    <img v-show="isShow" src="https://cloud.ayaka.icu/d/Test-5.jpg" alt="" width="360px">
+    <img v-show="age>=18" src="https://cloud.ayaka.icu/d/Test-3.jpg" alt="" width="360px">
+    <img v-show="but" src="https://cloud.ayaka.icu/d/Test-1.png" alt="" width="360px">
+    <input type="button" @click="look" value="点击查看图片">
+    <br><hr>
+
+    <!-- v-if -->
+    <img v-if="but2" src="https://cloud.ayaka.icu/d/OSS/img/EVA/anime/02.jpg" alt="" width="360px">
+    <input type="button" @click="look2" value="点击查看图片">
+
+    <!-- v-show 操作 style="display: " -->
+    <!-- v-if 操作的是dom树 -->
+    <!-- v-show 更快 -->
+
+</div>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+        isShow: true,
+        age: 18,
+        but: false,
+        but2: false
+    },
+    methods: {
+        look: function (){
+            this.but = !this.but;
+        },
+        look2: function (){
+            this.but2 = !this.but2;
+        }
+
+    }
+  });
+</script>
+
+</html>

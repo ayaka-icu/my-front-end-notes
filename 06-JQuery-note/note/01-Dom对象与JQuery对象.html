@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-Dom对象与JQuery对象</title>
+</head>
+<body>
+
+<!---->
+<div id="my-div">文本</div>
+
+</body>
+
+<script src="../js/jquery-3.7.0.min.js"></script>
+<script type="text/javascript">
+    /* Doc对象 */
+    let divDom = document.getElementById("my-div");
+    console.log(divDom);
+    let divDom2 = document.getElementsByTagName("div");
+    console.log(divDom2);
+    // js获取不存在的元素
+    let spanDoc = document.getElementsByTagName("span");
+    console.log(spanDoc);
+
+    /* Jquery对象 */
+    let divJquery = $("#my-div");
+    console.log(divJquery);
+    // Jquery获取不存在的元素
+    let mySpan = $("#mySpan");
+    console.log(mySpan);
+    console.log("===========");
+
+    /* Dom对象 转 Jquery对象 */
+    let myDiv = document.getElementById('my-div');
+    console.log(myDiv)
+    myDiv = $(myDiv);
+    console.log(myDiv);
+    console.log("===========");
+
+    /* Jquery对象 转 Dom对象 */
+    // 方式一
+    let v = jQuery("#my-div");
+    console.log(v);
+    // 方式二
+    let d = $('my-div');
+    let dom = d[0];
+    console.log(dom);
+    console.log("===========");
+
+    $('#my-div').each(function (){
+        console.log($(this));
+    })
+
+
+
+</script>
+
+
+</html>

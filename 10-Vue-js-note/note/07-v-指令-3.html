@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-指令-3</title>
+    <style>
+        .active{
+            border: 3px solid aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <!-- v-bind: v-bind:src v-bind:class v-bind:href ... -->
+    <!-- 简写：:src :class :href -->
+    <img v-bind:src="src1" v-bind:title="title" alt="" width="360px">
+    <img :src="src2" :title="title" :class="isActive?'active':''" @click="act" alt="" width="360px">
+    <img :src="src3" :title="title" :class="{action:isActive2}" @click="act2" alt="" width="360px">
+
+
+</div>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+        src1: "https://cloud.ayaka.icu/d/Test-2.png",
+        src2: "https://cloud.ayaka.icu/d/Test-4.jpg",
+        src3: "https://cloud.ayaka.icu/d/Test-3.jpg",
+        title: "我老婆!!!",
+        isActive: false,
+        isActive2: false
+    },
+    methods: {
+        look: function (){
+            this.but = !this.but;
+        },
+        look2: function (){
+            this.but2 = !this.but2;
+        },
+        act: function () {
+            this.isActive = !this.isActive;
+        },
+        act2: function () {
+            this.isActive2 = !this.isActive2;
+        }
+
+    }
+  });
+</script>
+
+</html>

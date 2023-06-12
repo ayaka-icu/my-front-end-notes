@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>v-if指令</title>
+</head>
+
+<body>
+<div id="mask">
+    <ul>
+        <li v-for="(i,v) in arr">
+            {{ i+1 }} 地址 {{ v }}
+        </li>
+    </ul>
+
+    <input type="button" @click="add" value="添加一个">
+    <input type="button" @click="sub" value="减少一个">
+
+    <h2 v-for="v in obj">
+        {{ v.name }}
+    </h2>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: "#mask",
+        data: {
+            arr: ["北京","上海","广州","深圳"],
+            obj: [
+                {name: "肉蛋葱鸡"},
+                {name: "肉蛋冲击"}
+            ]
+        },
+        methods: {
+            add: function () {
+                this.obj.push({name:"肉蛋充饥"});
+            },
+            sub: function () {
+                this.obj.shift();
+            }
+        },
+    })
+</script>
+</body>
+
+</html>

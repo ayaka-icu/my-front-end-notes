@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue作用范围</title>
+</head>
+<body id="body">
+
+{{ message }} <!-- 选择外部不生效 -->
+<div id="app" class="app">
+  {{ message }}
+  <h2>{{ message }}</h2>
+</div>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    // el: "#app",
+    // el: ".app", // class选择器也能生效
+    // el: "#body", // 以前不能使用 现在能了 但是非常不建议
+    el: "#app", // 一般开发中都会使用 id 选择器
+    data: {
+      message: '你好呀！vue'
+    }
+  })
+</script>
+
+</html>

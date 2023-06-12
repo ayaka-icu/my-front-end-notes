@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data数据对象</title>
+</head>
+<body id="body">
+
+
+<div id="app" class="app">
+    {{message}}
+    <h2>{{ school }}</h2>
+    <h2>{{ school.name }} {{ school.school }}</h2>
+    <hr>
+    <ul>
+        <li>{{ arr }}</li>
+        <li>{{ arr[0] }}</li>
+        <li>{{ arr[1] }}</li>
+        <li>{{ arr[2] }}</li>
+        <li>{{ arr[3] }}</li>
+    </ul>
+</div>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  let app = new Vue({
+    // el: "#app",
+    // el: ".app", // class选择器也能生效
+    // el: "#body", // 以前不能使用 现在能了 但是非常不建议
+    el: "#app", // 一般开发中都会使用 id 选择器
+    data: {
+        message: '你好呀！vue',
+        school: {
+            name: '你好,小黑子',
+            school: '1100'
+        },
+        arr: ['hello','word','vue']
+    }
+  })
+</script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-指令-1</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!-- v-text -->
+    <h2 v-text="message"></h2>
+    <h2 v-text="info"></h2>
+    <h2>{{ message }}!!!</h2>
+    <hr>
+    <h2 v-text="message+'!!!'"></h2>
+    <h2 v-text="info+'!!!'"></h2>
+    <h2>{{ message }}!!!</h2>
+    <hr>
+
+    <!-- v-html -->
+    <h2 v-text="html"></h2>
+    <h2 v-html="html"></h2>
+    <h2>{{ html }}</h2>
+    <hr>
+
+    <!-- v-on: v-on:click v-on:monseenter v-on:dblclick ... -->
+    <!-- @click @monseenter @dblclick @... -->
+    <input type="button" v-on:click="dolt" value="{{but}}">
+    <input type="button" v-on:monseenter="dolt" value="{{but}}">
+    <input type="button" v-on:dblclick="dolt" value="{{but}}">
+    <input type="button" @click="dolt" value="{{but}}">
+    <h2 @click="cj">
+        {{egg}}
+    </h2>
+
+</div>
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+        message: "Hello Vue!",
+        info: "你好呀！Vue!",
+        html: "<img src='https://cloud.ayaka.icu/d/Test-2.png' width='300px' alt=''>",
+        but: "这是一个按钮",
+        egg: "肉蛋葱鸡"
+    },
+    methods:{
+        dolt: function (){
+            alert(this.message)
+        },
+        cj: function (){
+            this.egg += " 冲击！";
+        }
+    }
+  });
+</script>
+
+</html>

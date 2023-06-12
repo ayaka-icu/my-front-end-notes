@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>图片切换</title>
+    <link rel="stylesheet" href="../css/08-css.css"/>
+</head>
+
+<body>
+<div id="mask">
+    <div class="center">
+        <h2 class="title">
+            <img src="../../00-public/img/cat12.png" alt="">
+            老婆们！！！
+        </h2>
+        <!-- 图片 -->
+        <img :src="imgArr[index]" alt=""/>
+        <!-- 左箭头 -->
+        <a href="javascript:void(0)" v-if="index!=0" @click="prev" class="left">
+            <img src="../img/prev.png" alt=""/>
+        </a>
+        <!-- 右箭头 -->
+        <a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next" class="right">
+            <img src="../img/next.png" alt=""/>
+        </a>
+    </div>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: "#mask",
+        data: {
+            imgArr: [
+                "../../00-public/img/cat09.png",
+                "../../00-public/img/02.jpg",
+                "../../00-public/img/04.jpg",
+                "../../00-public/img/cat02.png",
+                "../../00-public/img/cat01.png",
+                "../../00-public/img/cat02.png",
+                "../../00-public/img/cat03.png",
+                "../../00-public/img/cat08.png"
+            ],
+            index: 0
+        },
+        methods: {
+            prev: function () {
+                this.index--;
+            },
+            next: function () {
+                this.index++;
+            }
+        },
+    })
+</script>
+</body>
+
+</html>
